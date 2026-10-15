@@ -1,0 +1,6 @@
+apiVersion: v2
+name: webapp
+description: Stateless web service with HPA, PDB and NetworkPolicy
+type: application
+version: 0.1.0
+appVersion: "1.27.2"
