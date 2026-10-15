@@ -11,6 +11,12 @@ one outage at a time:
 - `NetworkPolicy` that only admits traffic from the ingress namespace
 - `values-dev.yaml` / `values-prod.yaml` per environment
 
+## Design notes
+
+- With the HPA enabled the Deployment omits `replicas`, so a `helm upgrade` does not reset the scaled count.
+- The root filesystem is read-only; only `/tmp` is writable (emptyDir).
+- `make validate` lints and renders both environments through `kubeconform -strict`, and checks that the schema rejects `image.tag=latest`.
+
 ## Usage
 
 ```bash
